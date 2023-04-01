@@ -221,9 +221,9 @@ contract SurvGovernance is Ownable {
 
     function balanceOf(address member) public view returns (uint) {
         ( uint memberLiquidity, ) = pooledPower(member);
-        ( uint memberSoul, ) = survPower(member);
+        ( uint memberSurv, ) = survPower(member);
 
-        return memberLiquidity + memberSoul;
+        return memberLiquidity + memberSurv;
     }
 
     // gets: member's pooled SURV power
