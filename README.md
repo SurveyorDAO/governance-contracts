@@ -2,8 +2,6 @@
 
 **Template repository for getting started quickly with Foundry projects**
 
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
-
 ## Getting Started
 
 Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
