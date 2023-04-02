@@ -210,8 +210,8 @@ contract SurvGovernance is Ownable {
     IERC20 surv = IERC20(0x5d9EaFC54567F34164A269Ba6C099068df6ef651);
     ISoulSwapPair survNative = ISoulSwapPair(0xF9062aF9EF6492Cbd68Aed1739769d75E461602D);
 
-    function name() public pure returns (string memory) { return "SurvGovernance"; }
-    function symbol() public pure returns (string memory) { return "sGOV"; }
+    function name() public pure returns (string memory) { return "Bearing"; }
+    function symbol() public pure returns (string memory) { return "BRG"; }
     function decimals() public pure returns (uint8) { return 18; }
 
     // gets: total voting power = the reserves in the LPs
