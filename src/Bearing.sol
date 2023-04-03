@@ -228,26 +228,45 @@ contract Bearing is Ownable {
 
     // gets: member's pooled SURV power
     function pooledPower(address member) public view returns (uint raw, uint formatted) {
+
+        // surv per LP
+        (uint _servPerLP, ) = servPerLP();
+
+        // pooled balance (LP)
+        (uint _pooledBalance, ) = pooledBalance(member);
+
+        // staked balance (LP)
+        (uint _stakedBalance, ) = stakedBalance(member);
+
+        // total LP balance
+        uint lp_balance = _pooledBalance + _stakedBalance;
+
+        // LP balance * SURV per each LP
+        uint lp_power = lp_balance * _servPerLP;
+
+        return (lp_power, fromWei(lp_power));
+    }
+
+    function servPerLP() public view returns (uint raw, uint formatted) {
         // pooled SURV
         uint lp_underlyingSurv = surv.balanceOf(address(survNative));
 
         // SURV in each LP
-        uint surv_per_lp = lp_underlyingSurv / survNative.totalSupply();
+        uint _survPerLP = lp_underlyingSurv / survNative.totalSupply();
 
+        return (_survPerLP, fromWei(_survPerLP));
+    }
+
+    function pooledBalance(address member) public view returns (uint raw, uint formatted) {
         // wallet balance (LP)
-        uint lp_walletBalance = survNative.balanceOf(member);
+        uint _pooledBalance = survNative.balanceOf(member);
+        return (_pooledBalance, fromWei(_pooledBalance));
+    }
 
-        // staked LP balance (LP)
-        (uint lp_stakedBalance,,,,,) = manifestation.userInfo(member);
-
-        // total LP balance
-        uint lp_balance = lp_walletBalance + lp_stakedBalance;
-
-        // LP balance * SURV per each LP
-        uint lp_power = lp_balance * surv_per_lp;
-
-        return (lp_power, fromWei(lp_power));
-
+    function stakedBalance(address member) public view returns (uint raw, uint formatted) {
+        // staked balance (LP)
+        (uint _stakedBalance,,,,,) = manifestation.userInfo(member);
+        return (_stakedBalance, fromWei(_stakedBalance));
     }
 
     // gets: member's SURV power
