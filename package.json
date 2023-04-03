@@ -1,0 +1,20 @@
+{
+    "name": "governance-contracts",
+    "version": "1.0.0",
+    "description": "smart contracts for surveyor governance",
+    "main": "index.js",
+    "repository": "https://github.com/SurveyorDAO/governance-contracts.git",
+    "author": "Buns <bunsthedev@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+      "build": "forge build",
+      "deploy": "forge script script/Bearing.s.sol:BearingScript --rpc-url https://rpc.ankr.com/fantom --broadcast --verify",
+      "test": "forge test -v",
+      "flatten": "forge flatten"
+    },
+    "dependencies": {
+      "@openzeppelin/contracts": "^4.8.1",
+      "forge-std": "^1.1.2"
+    }
+  }

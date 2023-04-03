@@ -35,3 +35,7 @@ contract ContractTest is Test {
 ## Development
 
 This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+
+
+## Deployed Contracts
+- Bearing.sol: [0x3Cf2E2274Fb9407eBA602F5727EC85211Da4da1e](https://ftmscan.com/address/0x3Cf2E2274Fb9407eBA602F5727EC85211Da4da1e#code)

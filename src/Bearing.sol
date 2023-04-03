@@ -200,10 +200,10 @@ abstract contract Ownable is Context {
     }
 }
 
-// File: contracts/governance/SurvGovernance.sol
+// File: contracts/governance/Bearing.sol
 pragma solidity >=0.8.0;
 
-contract SurvGovernance is Ownable {
+contract Bearing is Ownable {
 
     // addresses
     IManifestation manifestation = IManifestation(0x87ED587e2a52bA28c6dA63199E9988067d10Fe34);
