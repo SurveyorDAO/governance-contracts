@@ -228,24 +228,23 @@ contract Bearing is Ownable {
 
     // gets: member's pooled SURV power
     function pooledPower(address member) public view returns (uint raw, uint formatted) {
-        // total | pooled SURV
+        // pooled SURV
         uint lp_underlyingSurv = surv.balanceOf(address(survNative));
 
-        // member | SURV LP balance
+        // SURV in each LP
+        uint surv_per_lp = lp_underlyingSurv / survNative.totalSupply();
+
+        // wallet balance (LP)
         uint lp_walletBalance = survNative.balanceOf(member);
 
-        // member | staked LP balance
+        // staked LP balance (LP)
         (uint lp_stakedBalance,,,,,) = manifestation.userInfo(member);
 
-        // member | lp balance
-        uint lp_balance = 
-              lp_walletBalance 
-            + lp_stakedBalance;
+        // total LP balance
+        uint lp_balance = lp_walletBalance + lp_stakedBalance;
 
-        // LP voting power is the members' SURV share in the LP pool.
-        uint lp_power =
-              lp_underlyingSurv 
-            * lp_balance;
+        // LP balance * SURV per each LP
+        uint lp_power = lp_balance * surv_per_lp;
 
         return (lp_power, fromWei(lp_power));
 
