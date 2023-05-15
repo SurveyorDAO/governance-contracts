@@ -206,7 +206,7 @@ pragma solidity >=0.8.0;
 contract Bearing is Ownable {
 
     // addresses
-    IManifestation manifestation = IManifestation(0x87ED587e2a52bA28c6dA63199E9988067d10Fe34);
+    IManifestation manifestation = IManifestation(0x3546c3784321323034A762cAcB9efA618c6b7920);
     IERC20 surv = IERC20(0x5d9EaFC54567F34164A269Ba6C099068df6ef651);
     ISoulSwapPair survNative = ISoulSwapPair(0xF9062aF9EF6492Cbd68Aed1739769d75E461602D);
 
@@ -274,6 +274,12 @@ contract Bearing is Ownable {
         // survPower is the members' SURV balance.
         uint surv_power = surv.balanceOf(member);
         return (surv_power, fromWei(surv_power));
+    }
+
+    // ADMIN FUNCTIONS //
+    // sets: manifestation
+    function setManifestation(address _manifestation) onlyOwner public {
+        manifestation = IManifestation(_manifestation);
     }
 
     // blocks ERC20 functionality.

@@ -38,4 +38,4 @@ This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.
 
 
 ## Deployed Contracts
-- Bearing.sol: [0x982FE8Eb4CA3b74E7b339d01157Be85c8C6c7b4B](https://ftmscan.com/address/0x982FE8Eb4CA3b74E7b339d01157Be85c8C6c7b4B#code)
+- Bearing.sol: [0x30240B22A0988ebBDd5410367B66e294bE2C3EfE](https://ftmscan.com/address/0x30240B22A0988ebBDd5410367B66e294bE2C3EfE#code)
